@@ -1,6 +1,7 @@
 # DAZ to APEX character rigging setup v1.5
 
-![daz2apex_demo](https://github.com/user-attachments/assets/3c42cf1c-396d-44ee-84bc-e5ce01dc4452)
+![daz2apex_demo](https://github.com/user-attachments/assets/34fe8b71-e561-47ef-ad48-e1746e361663)
+
 
 Although it went through a lot of iterations already, it's not perfect.
 I left some comment notes and node comments inside. 
