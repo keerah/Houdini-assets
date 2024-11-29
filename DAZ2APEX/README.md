@@ -1,4 +1,4 @@
-DAZ to Houdini character APEX rigging setup v1.5 by keerah.com
+# DAZ to Houdini character APEX rigging setup v1.5
 
 Although it went through a lot of iterations already, it's not perfect.
 I left some comment notes and node comments inside. 
@@ -6,7 +6,7 @@ This setup is intended for bipedal human characters and never tested on an anima
 Basically this setup allows to inject a new character by simply loading a new fbx.
 
 
-The most of the setup is auto, and the APEX part is 100% auto.
+## The most of the setup is auto, and the APEX part is 100% auto.
 
 What's included:
 - DAZ fbx character import (export character without hairs for it)
@@ -25,7 +25,7 @@ What's included:
 Please do not use the assets of this setup without buying from DAZ, they included for your convenience only.
 
 
-The manual parts:
+## The manual parts:
 
 1. Since DAZ structures are quite diverse, after loading an fbx you will have to care of the assets material separation. "Isolate_materials_into_groups" subnet cares about this. This is mostly required because some assets can have same material names. This subnet has a number of renaming nodes, you will need one for eatch clothing, they simply add a prefix to the original material names, that you can also specify. Just select a group for each asset and change the prefix to your preference.
 
@@ -40,7 +40,7 @@ The manual parts:
 6. Select one of the hair injection methods. If you exported fiber (curve) hair from DAZ, you connect them directly. Or if your character has hair cards, then use one of the two resamplers included in the setup: "Polyhair_to_Curves" for single-poly hairs or the more complex and slower "Hair_polycards_to_Curves". These will resample the geo into curves for you. Adjust hair render propreties inside "Hair_render_properties" subnet. Then the head hair simply gets attached to the head bone, but for the beard I use Atribute Transfer node, to copy the Capture weights from the character's face. It might need some adjustment from you as well.
 
 
-Exporting from DAZ.
+## Exporting from DAZ.
 
 Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper joint orientations, my setup cares about it in the "Orient_joints" subnet. It works pretty well, but since I am not an expert, it might need your attention. DAZ insists that Degraded Scaling must be on for FBX, and I am yet not sure about Degraded Skinning, both states are working.
 
