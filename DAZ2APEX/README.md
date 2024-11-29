@@ -1,4 +1,4 @@
-# DAZ to Houdini character APEX rigging setup v1.5
+# DAZ to APEX character rigging setup v1.5
 
 ![daz2apex_demo](https://github.com/user-attachments/assets/3c42cf1c-396d-44ee-84bc-e5ce01dc4452)
 
