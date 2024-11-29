@@ -29,17 +29,17 @@ Please do not use the assets of this setup without buying from DAZ, they include
 
 ## The manual parts
 
-1. Since DAZ structures are quite diverse, after loading an fbx you will have to care of the assets material separation. "Isolate_materials_into_groups" subnet cares about this. This is mostly required because some assets can have same material names. This subnet has a number of renaming nodes, you will need one for eatch clothing, they simply add a prefix to the original material names, that you can also specify. Just select a group for each asset and change the prefix to your preference.
+1. Since DAZ structures are quite diverse, after loading an fbx you will have to care of the assets material separation. `Isolate_materials_into_groups` subnet cares about this. This is mostly required because assets can share same material names. This subnet has a number of renaming nodes, you will need one for eatch clothing. Each one adds a prefix to the original material names, that you can also specify. Just select a group for each asset and change the prefix to your preference.
 
-2. Then you will have to care about the materials yourself, while I am looking into how to automate it. You will find the template materials inside, just replace the textures and create new ones for the clothings.
+2. Then you will have to care about the materials yourself, while I am looking into how to automate it. You will find the template materials inside, just replace the textures and create new materials for the clothings.
 
-3. DAZ clothes/props have their own skeletons, which my setup takes care of in the "Joints_cleanup" subnet. I never had to change anything in it, but if something breaks it might be a good idea to inspect the incoming skeletons for possible duplicates.
+3. DAZ clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. I never had to change anything in it, but if something breaks it might be a good idea to inspect the incoming skeletons for possible duplicates.
 
 4. This setup handles twist joints in 99% of cases, but if it doesn't you can get rid of them in DAZ as an option.
 
-5. Use the included "Sculpt" and "Capture Layer Paint" nodes to fix any problems with skinning/geometry (they stash the geo, so you'll need to reset them for each new character).
+5. Use the included `Sculpt` and `Capture Layer Paint` nodes to fix any problems with skinning/geometry (they stash the geo, so you'll need to reset them for each new character).
 
-6. Select one of the hair injection methods. If you exported fiber (curve) hair from DAZ, you connect them directly. Or if your character has hair cards, then use one of the two resamplers included in the setup: "Polyhair_to_Curves" for single-poly hairs or the more complex and slower "Hair_polycards_to_Curves". These will resample the geo into curves for you. Adjust hair render propreties inside "Hair_render_properties" subnet. Then the head hair simply gets attached to the head bone, but for the beard I use Atribute Transfer node, to copy the Capture weights from the character's face. It might need some adjustment from you as well.
+6. Select one of the hair injection methods. If you exported fiber (curve) hair from DAZ, you connect them directly. Or if your character has hair cards, then use one of the two resamplers included in the setup: `Polyhair_to_Curves` for single-poly hairs or the more complex and slower `Hair_polycards_to_Curves`. These will resample the geo into curves for you. Adjust hair render propreties inside `Hair_render_properties` subnet. Then the head hair simply gets attached to the head joint, but for the beard I use `Atribute Transfer` node to transfer Capture weights from the character's face. It might need some adjustment from you as well.
 
 
 ## Exporting from DAZ
