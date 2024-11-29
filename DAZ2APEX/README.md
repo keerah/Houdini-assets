@@ -1,5 +1,7 @@
 # DAZ to Houdini character APEX rigging setup v1.5
 
+![Screenshot 2024-08-20 082630](https://github.com/user-attachments/assets/8dca1ded-8dc8-4f8b-9574-ce7c3e1469bc)
+
 Although it went through a lot of iterations already, it's not perfect.
 I left some comment notes and node comments inside. 
 This setup is intended for bipedal human characters and never tested on an animated DAZ export.
