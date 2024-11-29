@@ -48,3 +48,9 @@ Please do not use the assets of this setup without buying from DAZ, they include
 Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper joint orientations, my setup cares about it in the "Orient_joints" subnet. It works pretty well, but since I am not an expert, it might need your attention. DAZ insists that Degraded Scaling must be on for FBX, and I am yet not sure about Degraded Skinning, both states are working.
 
 Exportt the head and facial/body hair (except the eyelashes and eyebrows) separately into Obj. Enable UVs, Normals, Faces, Polylines and Separate Object and Write Groups checkmarks.
+
+
+## Useful links
+
+[DAZ Studio Alembic Exporter](https://www.daz3d.com/forums/discussion/428856/sagan-a-daz-studio-to-blender-alembic-exporter/p1)
+[DAZ js script to collect textures](https://www.daz3d.com/forums/discussion/386421/help-solution-for-collecting-all-maps-from-a-ds4-scene/p1)
