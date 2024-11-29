@@ -5,7 +5,7 @@
 Although it went through a lot of iterations already, it's not perfect.
 I left some comment notes and node comments inside. 
 This setup is intended for bipedal human characters and never tested on an animated DAZ export.
-Basically this setup allows to inject a new character by simply loading a new fbx.
+Basically this setup allows to inject a new character simply by loading a new fbx.
 
 
 ## The most of the setup is auto, and the APEX part is 100% auto
