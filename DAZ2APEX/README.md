@@ -1,4 +1,4 @@
-# DAZ to APEX character rigging setup v1.65
+# DAZ to APEX character rigging setup
 
 ![daz2apex_demo](https://github.com/user-attachments/assets/34fe8b71-e561-47ef-ad48-e1746e361663)
 
