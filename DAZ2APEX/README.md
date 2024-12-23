@@ -1,4 +1,4 @@
-# DAZ to APEX character rigging setup v1.5
+# DAZ to APEX character rigging setup v1.65
 
 ![daz2apex_demo](https://github.com/user-attachments/assets/34fe8b71-e561-47ef-ad48-e1746e361663)
 
@@ -24,6 +24,7 @@ What's included:
 - Basic APEX character animation setup
 - Karma LOP with auto SOP->LOP material assignment (copy over the materials from the character_init matnet1 into the LOPs matlib, do not rename matnet1, this name is used for auto-material assignment)
 - Demo character
+- No morphs (as of yet)
 
 Please do not use the assets of this setup without buying from DAZ, they included for your convenience only.
 
