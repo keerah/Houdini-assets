@@ -41,7 +41,7 @@ Please do not use the assets of this setup without buying from DAZ, they include
 
 5. Use the included `Sculpt` and `Capture Layer Paint` nodes to fix any problems with skinning/geometry (they stash the geo, so you'll need to reset them for each new character).
 
-6. Select one of the hair injection methods. If you exported fiber (curve) hair from DAZ, you connect them directly. Or if your character has hair cards, then use one of the two resamplers included in the setup: `Polyhair_to_Curves` for single-poly hairs or the more complex and slower `Hair_polycards_to_Curves`. These will resample the geo into curves for you. Adjust hair render propreties inside `Hair_render_properties` subnet. Then the head hair simply gets attached to the head joint, but for the beard I use `Atribute Transfer` node to transfer Capture weights from the character's face. It might need some adjustment from you as well.
+6. Select one of the hair capture methods. If you exported fiber (curves) hair from DAZ, you connect them directly. Or if your character has hair cards, then use one of the two resamplers included in the setup: `Polyhair_to_Curves` for single-poly hairs, or the more complex and slower `Hair_polycards_to_Curves`. These will resample the geo into curves for you. Adjust hair render propreties inside the `Hair_render_properties` subnet. Then the head hair simply gets attached to the head joint, but for the stache/beard I use `Atribute Transfer` way to transfer Capture weights from the character's face. It might need some adjustment from you as well. If you have a lot of facial animation it's  a good idea to bind hair this way too, so the hairline is affected by the animation, altho this is less precise method.
 
 
 ## Exporting from DAZ
