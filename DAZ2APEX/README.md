@@ -20,6 +20,7 @@ The most of the setup is auto, and the APEX part is 100% auto.
 
 ## What's included:
 
+- Full-featured APEX rig based on Electra featuring fk/ik, spine spline, reverse feet, full facial rig and head/eyes aim
 - DAZ fbx character import (export character without hairs for it)
 - DAZ obj hair/stache import, fiber style or use 2 included hair cards to splines resamplers (export hairs to obj for this)
 - Genesis joints renamer (to sanitize names and bring them to root based naming)
@@ -30,7 +31,6 @@ The most of the setup is auto, and the APEX part is 100% auto.
 - Capture layer correction setup
 - Material assignment
 - Transparent zones setup (to hide body-clothes intersections)
-- Full-featured APEX rig based on Electra featuring fk/ik, spine spline, reverse feet, full facial rig and head/eyes aim
 - Basic APEX character animation setup
 - Karma LOP with auto SOP->LOP material assignment (copy over the materials from the character_init matnet1 into the LOPs matlib, do not rename matnet1, this name is used for auto-material assignment, or if needed rename the LOPs primitive path accordingly)
 - Demo character (included for your convenience only, please buy the assets from DAZ)
