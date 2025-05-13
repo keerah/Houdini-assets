@@ -69,7 +69,7 @@ v 1.9
 - Simple bind now does not create packed geometry, it overrides capture attribute instead (should help with char instancing)
 - More shortcuts in `Hair_properties`
 - Got rid of unneded path attribute on Rest_skel
-- Added alternative transform in "Joints_scale" (can make difference for non-DAZ models)
+- Added alternative transform in `Joints_scale` (can make difference for non-DAZ models)
 - More comments everywhere
 - APEX nodes refreshed with build 20.5.587
 
