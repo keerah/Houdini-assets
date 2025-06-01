@@ -61,6 +61,11 @@ Export the head and facial/body hair (except the eyelashes and eyebrows) separat
 
 ## Changelog:
 
+v 1.93
+
+- `Isolate_materials_into_groups` now uses name patterns, should help automate it
+- `Invisible_zones` in a separate subnet and has settings now
+
 v 1.92
 
 - Small fixes and reorganizing
