@@ -61,6 +61,11 @@ Export the head and facial/body hair (except the eyelashes and eyebrows) separat
 
 ## Changelog:
 
+v 1.92
+
+- Small fixes and reorganizing
+- Remove class attribute after `Polyhair_to_Curves`
+
 v 1.9
 - Neck rotation joint added
 - Correction to the Thumb orientation, now it is more alinged with other fingers
