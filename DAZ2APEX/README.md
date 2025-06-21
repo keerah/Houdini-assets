@@ -56,10 +56,17 @@ The most of the setup is auto, and the APEX part is 100% auto.
 
 Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper joint orientations, my setup cares about it in the `Joints_orient` subnet. DAZ insists that Degraded Scaling must be on for FBX, but both states are working well.
 
-Export the head and facial/body hair (except the eyelashes and eyebrows) separately into Obj file. Enable UVs, Normals, Faces, Polylines, Separate Object and Write Groups checkmarks. If the hair scalp is required then it's more convenient to export it together with hair instead of character geo in my experience.
+Export the head/facial/body hair (except the eyelashes and eyebrows) separately into Obj file. Daz can export curves/splines into Obj. Enable following options: UVs, Normals, Faces, Polylines, Separate Object, Write Groups. If the hair scalp is required then in my experience it is more convenient to export it together with hair instead of the character geo.
 
 
 ## Changelog:
+
+v 1.94
+
+- `Aim_eyes` merged into a single lookat APEX component for both eyes
+- Disabled name hardening on cache nodes by default
+- Character pack/cache added
+- Early version of retarget helper setup (kinefx) added
 
 v 1.93
 
