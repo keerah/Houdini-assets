@@ -67,24 +67,23 @@ If the hair scalp is required then in my experience it is more convenient to exp
 
 v 1.95
 
-- Retarget helper setup v 0.2 (with Rig presets, Caching and Transforms)
-- Char pack and cache added
-- Joint config with rotation orders to Joints_orient added (beta)
-- Rigstash moved into Joints_orient
-- Some more minor joint pattern updates
-- Materials updated with Invisible zones Alpha (disconnect Opacity to have materilas in the viewport)
-- APEX refresh build 20.5.684
+- NEW: Agent setup added
 - Root Joint orientation fixed (proper for agents)
-- Agent setup added
-- Added timeshift `Freeze` node to get rid of the time depenancy on Skel
+- Added timeshift `Freeze` node to get rid of the time dependency on Skel
+- Retarget helper setup update to v0.2 (with Rig presets, Caching and Transforms)
+- Added Joint config with rotation orders to the `Joints_orient` (beta)
+- Rigstash moved into `Joints_orient`
+- Materials updated with Invisible zones' Alpha (disconnect Opacity to have materilas in the viewport)
+- Some more minor joint pattern updates
+- APEX refreshed with build 20.5.684
 
 
 v 1.94
 
+- NEW: Early version of retarget helper setup (kinefx) added
 - `Aim_eyes` merged into a single lookat APEX component for both eyes
 - Disabled name hardening on cache nodes by default
 - Character pack/cache added
-- Early version of retarget helper setup (kinefx) added
 
 v 1.93
 
@@ -94,7 +93,7 @@ v 1.93
 v 1.92
 
 - Small fixes and reorganizing
-- Remove class attribute after `Polyhair_to_Curves`
+- Delete Class attribute after `Polyhair_to_Curves`
 
 v 1.9
 - Neck rotation joint added
