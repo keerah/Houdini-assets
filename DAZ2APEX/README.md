@@ -23,7 +23,7 @@ The most of the setup is auto, and the APEX part is 100% auto.
 - APEX character setup + KineFX character + Agent setup
 - Full-featured APEX rig based on Electra featuring fk/ik, spine spline, reverse feet, full facial rig and head/eyes aim
 - DAZ fbx character import, separate hair import
-- Hair resamplers and settings: fiber hair (curves) or use 2 included hair cards to splines resamplers
+- Hair resamplers and settings: fiber hair (curves) or use 2 included hair cards-to-splines resamplers
 - Genesis joints renamer (to sanitize names and bring them to root-based naming)
 - Semi-auto grouping to isolate materials (optional for cases when the material names are not unique)
 - Joint transform reset (to 100% scale for DAZ and alternative for other characters)
@@ -33,16 +33,16 @@ The most of the setup is auto, and the APEX part is 100% auto.
 - Material assignment
 - Transparent zones setup (to hide body-clothes intersections)
 - Karma LOP with auto SOP->LOP material assignment
-- Demo character (included for your convenience only, please buy the assets from DAZ)
+- Demo character (included for your convenience only, obtain the assets from DAZ)
 - Default DAZ textures wired to the DAZ library using $LIB variable (change it to your path in Assets & Variables)
 - KineFX retarget helper
 
 
 ## The manual parts
 
-1. Since DAZ structures are quite diverse, after loading an fbx you will have to care about the materiala. For cases when material (surface) names are not unique use `Isolate_materials_into_groups` to isolate them in groups. This subnet has a number of renaming nodes for eatch clothing geo. They simply add a prefix to the original material names, that you can also specify. There's a set of default names with patters. If you require something different, select a named geo group for each asset and change the prefix to your preference, then update these group names in Material assignments. For materials in Karma/Solaris copy over your materials from the `Character_init` `matnet1` into the LOPs matlib, do not rename `matnet1`, this name is used for auto-material assignment, or if needed rename the LOPs primitive path accordingly.
+1. Since DAZ structures are quite diverse, after loading an fbx you will have to care about the materiala. For cases when material (surface) names are not unique use `Isolate_materials_into_groups` to isolate them in groups. This subnet has a number of renaming nodes for eatch clothing geo. They simply add a prefix to the original material names, that you can also specify. There's a set of default names with patterns. If you require something different, select a named geo group for each asset and change the prefix to your preference, then update these group names in Material assignments. For materials in Karma/Solaris copy over your materials from the `Character_init` `matnet1` into the LOPs matlib, do not rename `matnet1`, this name is used for auto-material assignment, or if needed rename the LOPs primitive path accordingly.
 
-2. The DAZ's clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. It's not a 100% universal solution, but I never had to change anything in it. Although if something breaks, it might be a good idea to inspect the skeletons for possible duplicates. This setup handles twist joints in 99% of cases, but if it doesn't you can get rid of them in DAZ befor expoting, as an option.
+2. The DAZ's clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. It's not a 100% universal solution, but I never had to change anything in it. Although if something breaks, it might be a good idea to inspect the skeletons for possible duplicates. This setup handles twist joints in 99% of cases, but if it doesn't you can get rid of them in DAZ before expoting as an option.
 
 3. Use the included `Sculpt` and `Capture Layer Paint` nodes to fix any problems with skinning/geometry (they stash the geo, so you need to reset them for each new character).
 
