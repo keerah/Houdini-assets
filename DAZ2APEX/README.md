@@ -1,4 +1,4 @@
-# DAZ to APEX character rig setup
+# DAZ G9 to APEX bipedal character tools for H20.5
 
 ![DAZ to APEX](https://github.com/user-attachments/assets/f0d1771e-8d74-4f10-a655-12adf9e1131b)
 
@@ -59,7 +59,7 @@ Export the head/facial/body hair (except the eyelashes and eyebrows) separately 
 - Faces
 - Polylines
 - Separate Object
-- Write Groups.
+- Write Groups
 If the hair scalp is required then in my experience it is more convenient to export it together with hair instead of the character geo.
 
 
@@ -76,6 +76,7 @@ v 1.95
 - APEX refresh build 20.5.684
 - Root Joint orientation fixed (proper for agents)
 - Agent setup added
+- Added timeshift `Freeze` node to get rid of the time depenancy on Skel
 
 
 v 1.94
