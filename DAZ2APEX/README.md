@@ -20,46 +20,63 @@ The most of the setup is auto, and the APEX part is 100% auto.
 
 ## What's included:
 
+- APEX character setup + KineFX character + Agent setup
 - Full-featured APEX rig based on Electra featuring fk/ik, spine spline, reverse feet, full facial rig and head/eyes aim
-- DAZ fbx character import (export character without hairs for it)
-- DAZ obj hair/stache import, fiber style or use 2 included hair cards to splines resamplers (export hairs to obj for this)
-- Genesis joints renamer (to sanitize names and bring them to root based naming)
-- Props/cloths grouping to isolate materials (optional for cases when the material names are not unique)
+- DAZ fbx character import, separate hair import
+- Hair resamplers and settings: fiber hair (curves) or use 2 included hair cards to splines resamplers
+- Genesis joints renamer (to sanitize names and bring them to root-based naming)
+- Semi-auto grouping to isolate materials (optional for cases when the material names are not unique)
 - Joint transform reset (to 100% scale for DAZ and alternative for other characters)
 - Joint orientation correction
-- 2 versions of hair/stache/props binding (for simple non-simulated attachment)
+- 2 versions of hair/stache/props binding: Joint attach or Capture attr transfer (for simple non-simulated attachment)
 - Capture layer correction setup
 - Material assignment
 - Transparent zones setup (to hide body-clothes intersections)
-- Basic APEX character animation setup
-- Karma LOP with auto SOP->LOP material assignment (copy over the materials from the character_init matnet1 into the LOPs matlib, do not rename matnet1, this name is used for auto-material assignment, or if needed rename the LOPs primitive path accordingly)
+- Karma LOP with auto SOP->LOP material assignment
 - Demo character (included for your convenience only, please buy the assets from DAZ)
 - Default DAZ textures wired to the DAZ library using $LIB variable (change it to your path in Assets & Variables)
+- KineFX retarget helper
 
 
 ## The manual parts
 
-1. Since DAZ structures are quite diverse, after loading an fbx you will have to care of the assets material separation. This is optional for cases when material (surface) names are not unique. `Isolate_materials_into_groups` subnet cares about this. This subnet has a number of renaming nodes for eatch clothing geo. They simply add a prefix to the original material names, that you can also specify. Just select a named geo group for each asset and change the prefix to your preference, then update these in Material assignment.
+1. Since DAZ structures are quite diverse, after loading an fbx you will have to care about the materiala. For cases when material (surface) names are not unique use `Isolate_materials_into_groups` to isolate them in groups. This subnet has a number of renaming nodes for eatch clothing geo. They simply add a prefix to the original material names, that you can also specify. There's a set of default names with patters. If you require something different, select a named geo group for each asset and change the prefix to your preference, then update these group names in Material assignments. For materials in Karma/Solaris copy over your materials from the `Character_init` `matnet1` into the LOPs matlib, do not rename `matnet1`, this name is used for auto-material assignment, or if needed rename the LOPs primitive path accordingly.
 
-2. Then you will have to care about the materials yourself, while I am looking into how to automate it. You will find the template materials inside, replace the textures and create new ones for the clothings.
+2. The DAZ's clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. It's not a 100% universal solution, but I never had to change anything in it. Although if something breaks, it might be a good idea to inspect the skeletons for possible duplicates. This setup handles twist joints in 99% of cases, but if it doesn't you can get rid of them in DAZ befor expoting, as an option.
 
-3. DAZ clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. It's not a universal solution, but I never had to change anything in it. Altho if something breaks, it might be a good idea to inspect the skeletons for possible duplicates.
+3. Use the included `Sculpt` and `Capture Layer Paint` nodes to fix any problems with skinning/geometry (they stash the geo, so you need to reset them for each new character).
 
-4. This setup handles twist joints in 99% of cases, but if it doesn't you can get rid of them in DAZ befor expoting, as an option.
-
-5. Use the included `Sculpt` and `Capture Layer Paint` nodes to fix any problems with skinning/geometry (they stash the geo, so you'll need to reset them for each new character).
-
-6. Select one of the hair injection methods. If you exported fiber (curve) hair from DAZ, you connect them directly. Or if your character has hair cards, then use one of the two resamplers included in the setup: `Polyhair_to_Curves` for single-poly hairs or the more complex and slower "Hair_polycards_to_Curves". These will resample the geo into curves for you. Adjust hair render propreties using `Hair_properties` subnet. Then the head hair can be simply attached to the head joint using "Bind_To_Head_Joint". But for the beard or any other deforming hair use `Bind_Capture_Transfer_from_Skin`, it transfers the Capture weights from the character's skin. It might need some adjustment from you as well.
+4. Choose one of the hair injection methods. If you exported fiber (curves) hair from DAZ, you connect them directly. Otherwise if your character has hair cards, then use one of the two resamplers included in the setup: `Polyhair_to_Curves` for single-poly hairs or the more complex/slower/better `Hair_polycards_to_Curves`. These will resample the geo into curves for you. Adjust hair render propreties using `Hair_properties` subnet. Then the head hair can be simply attached to the head joint using `Bind_To_Head_Joint`. But for the beard or any other deforming hair use `Bind_Capture_Transfer_from_Skin`, it transfers the Capture weights from the character's skin. It might need some adjustment from you as well.
 
 
 ## Exporting from DAZ
 
-Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper joint orientations, my setup cares about it in the `Joints_orient` subnet. DAZ insists that Degraded Scaling must be on for FBX, but both states are working well.
+Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper Joint orientations, my setup cares about it in the `Joints_orient` subnet. DAZ insists that Degraded Scaling must be on for FBX, but both states are working well ffor me.
 
-Export the head/facial/body hair (except the eyelashes and eyebrows) separately into Obj file. Daz can export curves/splines into Obj. Enable following options: UVs, Normals, Faces, Polylines, Separate Object, Write Groups. If the hair scalp is required then in my experience it is more convenient to export it together with hair instead of the character geo.
+Export the head/facial/body hair (except the eyelashes and eyebrows) separately into Obj file. Daz can export curves/splines into Obj. Enable the following options:
+- UVs
+- Normals
+- Faces
+- Polylines
+- Separate Object
+- Write Groups.
+If the hair scalp is required then in my experience it is more convenient to export it together with hair instead of the character geo.
 
 
 ## Changelog:
+
+v 1.95
+
+- Retarget helper setup v 0.2 (with Rig presets, Caching and Transforms)
+- Char pack and cache added
+- Joint config with rotation orders to Joints_orient added (beta)
+- Rigstash moved into Joints_orient
+- Some more minor joint pattern updates
+- Materials updated with Invisible zones Alpha (disconnect Opacity to have materilas in the viewport)
+- APEX refresh build 20.5.684
+- Root Joint orientation fixed (proper for agents)
+- Agent setup added
+
 
 v 1.94
 
