@@ -35,7 +35,7 @@ The most of the setup is auto, and the APEX part is 100% auto.
 - Karma LOP with auto SOP->LOP material assignment
 - Demo character (included for your convenience only, obtain the assets from DAZ)
 - Default DAZ textures wired to the DAZ library using $LIB variable (change it to your path in Assets & Variables)
-- KineFX retarget helper
+- KineFX retarget helper with Rig presets, Locomotion extraction, Caching and Transforms
 
 
 ## The manual parts
@@ -71,7 +71,7 @@ v 1.95
 - NEW: Agent setup added
 - Root Joint orientation fixed (proper for agents)
 - Added timeshift `Freeze` node to get rid of the time dependency on Skel
-- Retarget helper setup update to v0.2 (with Rig presets, Caching and Transforms)
+- Retarget helper setup update to v0.2 (with Rig presets, Locomotion extraction, Caching and Transforms)
 - Added Joint config with rotation orders to the `Joints_orient` (beta)
 - Rigstash moved into `Joints_orient`
 - Materials updated with Invisible zones' Alpha (disconnect Opacity to have materilas in the viewport)
