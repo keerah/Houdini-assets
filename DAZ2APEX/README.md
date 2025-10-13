@@ -60,6 +60,7 @@ Export the head/facial/body hair (except the eyelashes and eyebrows) separately 
 - Polylines
 - Separate Object
 - Write Groups
+
 If the hair scalp is required then in my experience it is more convenient to export it together with hair instead of the character geo.
 
 
