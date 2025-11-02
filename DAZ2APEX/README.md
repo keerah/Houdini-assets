@@ -40,7 +40,7 @@ The most of the setup is auto, and the APEX part is 100% auto.
 
 ## The manual parts
 
-1. Since DAZ structures are quite diverse, after loading an fbx you will have to care about the materiala. For cases when material (surface) names are not unique use `Isolate_materials_into_groups` to isolate them in groups. This subnet has a number of renaming nodes for eatch clothing geo. They simply add a prefix to the original material names, that you can also specify. There's a set of default names with patterns. If you require something different, select a named geo group for each asset and change the prefix to your preference, then update these group names in Material assignments. For materials in Karma/Solaris copy over your materials from the `Character_init` `matnet1` into the LOPs matlib, do not rename `matnet1`, this name is used for auto-material assignment, or if needed rename the LOPs primitive path accordingly.
+1. Since DAZ structures are quite diverse, after loading an fbx you will have to care about the materiala. For cases when material (surface) names are not unique use `Isolate_materials_into_groups` to isolate them in groups. This subnet has a number of renaming nodes for eatch clothing geo. They simply add a prefix to the original material names, that you can also specify. There's a set of default names with patterns. If you require something different, select a named geo group for each asset and change the prefix to your preference, then update these group names in Material assignments. For materials in Karma/Solaris copy over your materials from the `Character_init` `matnet1` into the LOPs matlib, if you rename the `matnet1` node, you have to rename the `Auto_material` Separator accordingly, since it is used as a delimiter to re-build the LOP material path. It is irrelevant where in the SOPs the material is, `Auto_material` script simply truncates everything before (and with) the separator from the GeomSubset's name to get the actual Material name. GeomSubsets are the result of the Partition Attributes function of the SOP Import LOP. Logically the `shop_materialpath` attribute is used for partitioning, it's a covenient procedural solution for those who still live in-between the LOPs/SOPs worlds.
 
 2. The DAZ's clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. It's not a 100% universal solution, but I never had to change anything in it. Although if something breaks, it might be a good idea to inspect the skeletons for possible duplicates. This setup handles twist joints in 99% of cases, but if it doesn't you can get rid of them in DAZ before expoting as an option.
 
@@ -66,6 +66,12 @@ If the hair scalp is required then in my experience it is more convenient to exp
 
 ## Changelog:
 
+v1.96
+- `Fix_capture_and_joint_names` now has parameters with renaming/removing RegEx patterns
+- `Fix_joints_scale` now has its mode toggle: Off, Overwrite (with 100% scale) and Calculate (from polardecomp stretch)
+- Retarget helper v0.3 (+Rokoko preset, folders order, more controls)
+- Added group transfer to `Haircards_to_Curves` to preserve the source's hair groups
+
 v 1.95
 
 - NEW: Agent setup added
@@ -75,7 +81,7 @@ v 1.95
 - Added Joint config with rotation orders to the `Joints_orient` (beta)
 - Rigstash moved into `Joints_orient`
 - Materials updated with Invisible zones' Alpha (disconnect Opacity to have materilas in the viewport)
-- Some more minor joint pattern updates
+- Some more minor joint patterns updates
 - APEX refreshed with build 20.5.684
 
 
