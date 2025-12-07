@@ -5,4 +5,4 @@ Digital assets/setups for SideFX Houdini
 
 [Harmonic armature](https://github.com/keerah/Houdini-assets/tree/main/Harmonic_armature)
 
-[LOPs Automat](https://github.com/keerah/Houdini-assets/tree/main/LOPs_Automat)
+[LOPs AutoMat](https://github.com/keerah/Houdini-assets/tree/main/LOPs_Automat)
