@@ -49,12 +49,11 @@ This setup allows to inject a new character by simply loading a new fbx (and mat
 
 ## Exporting from DAZ
 
-Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper Joint orientations, my setup cares about it in the `Joints_orient` subnet. DAZ insists that Degraded Scaling must be on for FBX, but both states are working well ffor me.
+Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper Joint orientations, my setup cares about it in the `Joints_orient` subnet. DAZ insists that Degraded Scaling must be on for FBX, but both options seem to work well for me.
 
 Export the head/facial/body hair (except the eyelashes and eyebrows) separately into Obj file. Daz can export curves/splines into Obj. Enable the following options:
 - UVs
-- Normals
-- Faces
+- Faces 
 - Polylines
 - Separate Object
 - Write Groups
@@ -64,7 +63,18 @@ If the hair scalp is required then in my experience it is more convenient to exp
 
 ## Changelog:
 
-v 2.0
+
+v 2.1 - Start of Houdini 21+ support.
+
+- This is an early version based on the previous setup and is most likely not efficient enough yet.
+- NEW: APEX setup udated with the custom tool `eyelids_rotation_from_eyes` that deforms eyelids after the eye movement. You can disable it, or you can adjust the rotatinal multipliers in the first 2 lines of the APEX code.
+- Hair properties node updated with output visualizer switch, reorganized and optimized. Removed groups creation, instead it can now split the input hair geometry by groups and merge them back into the first output after processing.
+- Updated materials with the new Normal map 2.0 and new Karma-specific parameters.
+- Updated LOPs autoMat with more strict primitive matching rules (subsets only).
+- Replaced the joint scale fixes with the new H21 built-in joint scale normalization option.
+
+
+v 2.0 - End of Houdini 20.5 support
 
 - NEW: `Isolate_materials` is replaced with the new automatic wrangle `Groups_by_keywords`. It assigns groups by matching keywords (via RegEx patterns) in any of the _name_, _fbx_material_name_ or _shop_materialpath_ attributes with settings per each pattern, allowing maximum flexibility
 - `Joints_names` now has node settings with more options, including L/R renaming
