@@ -1,4 +1,4 @@
-# DAZ G9 to APEX bipedal character tools for H20.5
+# DAZ G9 to APEX bipedal character tools
 
 ![DAZ to APEX](https://github.com/user-attachments/assets/f0d1771e-8d74-4f10-a655-12adf9e1131b)
 
