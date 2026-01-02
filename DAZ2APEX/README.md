@@ -22,7 +22,7 @@ This setup allows to inject a new character by simply loading a new fbx (and mat
 - Hair resamplers and settings: fiber hair (curves) or use 2 included hair cards-to-splines resamplers
 - Genesis joints renamer (to sanitize names and bring them to root-based naming)
 - Flexible grouping tool to isolate materials into groups by keywords (optional for cases when the material names are not unique)
-- Joint scaling reset (Overwrite to 100% or Re-calculate via polardecomp stretch)
+- Joint scaling reset (Overwrite to 100% or Re-calculate via polardecomp stretch) (H20.5)
 - Joint orientation correction
 - 2 versions of hair/stache/props binding for simple non-simulated attachment: Bind to (head) Joint (for static) or Capture transfer (for deforming geo)
 - Capture layer correction setup
