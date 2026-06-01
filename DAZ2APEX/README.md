@@ -49,7 +49,13 @@ This setup allows to inject a new character by simply loading a new fbx (and mat
 
 ## Exporting from DAZ
 
-Use pretty standart fbx export settings excluding lights and cameras. DAZ does not export proper Joint orientations, my setup cares about it in the `Joints_orient` subnet. DAZ insists that Degraded Scaling must be on for FBX, but both options seem to work well for me.
+Enable these FBX export settings:
+- Merge followers (important to merge all the props' skeletons with the main fugure's skeleton)
+- Allow Degraded Skinning (required for FBX export)
+- Allow Degraded Scaling (required for FBX export, but seems to work with it off as well)
+
+Everything else by default, but exclude the lights, the cameras and the morphs.
+DAZ does not export proper Joint orientations, my setup cares about it in the `Joints_orient` subnet.
 
 Export the head/facial/body hair (except the eyelashes and eyebrows) separately into Obj file. Daz can export curves/splines into Obj. Enable the following options:
 - UVs
