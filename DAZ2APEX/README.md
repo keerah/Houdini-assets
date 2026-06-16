@@ -69,6 +69,18 @@ If the hair scalp is required then in my experience it is more convenient to exp
 
 ## Changelog:
 
+v 2.2
+
+- More updates to more recent APEX features.
+- More `Joints_orient` fixes (correct Thumb axis in in particular)
+- `Joint_names` root joint name pattern narrowed (for renaming)
+- Added option to use APEX Groom instead of binding hairs to the character (now on by default, useful when you use only APEX to animate the character)
+- `Groups_by_keywords` is now `Materials_by_ReGex`. Instead of grouping it assigns materials directly. Also a function to quickly update the materials with a new character name is added.
+- Karma materials updated with MKKT option and it's enabled. Alpha maps are reconnected (since Houdini can finally display transparent materials).
+- `Hair_properties` updated with new options to collide Hair with Skin (to detangle) and to calculate stiffness along hairs (for simulation).
+- Import hair setup moved into the `Import_Daz_hair` subnet
+- Optimized export from `Char_anim` to Solaris by separating hair from geo, since they have pretty different set of attributes.
+- In one of the recent versions H changed the primary rig axis from Z to X, I think I have converted and fixed mostly everything related to this change.
 
 v 2.1 - Start of Houdini 21+ support.
 
