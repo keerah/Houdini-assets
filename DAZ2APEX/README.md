@@ -18,29 +18,28 @@ This setup allows to inject a new character by simply loading a new fbx (and mat
 
 - APEX character setup + KineFX character + Agent setup
 - Full-featured APEX rig based on Electra featuring fk/ik, spine spline, reverse feet, full facial rig and head/eyes aim
-- DAZ fbx character import, separate hair import
-- Hair resamplers and settings: fiber hair (curves) or use 2 included hair cards-to-splines resamplers
+- DAZ fbx character import and separate hair import
+- Hair resamplers and settings
 - Genesis joints renamer (to sanitize names and bring them to root-based naming)
-- Flexible grouping tool to isolate materials into groups by keywords (optional for cases when the material names are not unique)
-- Joint scaling reset (Overwrite to 100% or Re-calculate via polardecomp stretch) (H20.5)
+- Flexible material assignment using RegEx matching of `shop_materialpath`, `name` or `fbx_material` attributes
+- Joint scaling reset (for H20.5, H21 takes care of it)
 - Joint orientation correction
-- 2 versions of hair/stache/props binding for simple non-simulated attachment: Bind to (head) Joint (for static) or Capture transfer (for deforming geo)
+- Hair/stache/props binding: `Bind_to_Head_Joint` (for static hair) or `Bind_Capture_Transfer_from_Skin` (for deforming hair) or APEX Groom as a purely APEX option
 - Capture layer correction setup
 - Transparent zones setup (to hide body-clothes intersections)
 - Karma LOP with auto SOP->LOP material assignment
 - Demo character (a default DAZ character included for your convenience only, obtain the assets from DAZ)
-- Default DAZ textures wired to the DAZ library using $LIB variable (change it to your path in Assets & Variables)
 - KineFX retarget helper with Rig presets, Locomotion extraction, Caching and Transforms
 - No blenshapes (yet)
 
 
 ## The manual parts
 
-1. Since DAZ structures are quite diverse, after loading an fbx you will have to care about the materiala. For cases when material (surface) names are not unique use `Groups_by_keywords` to isolate them in groups. This is a new tool, that creates groups from attributes by matching patterns.
+1. Since DAZ structures are quite diverse, after loading an fbx you will have to care about the materiala. Use `Materials_by_ReGex` to isolate and assign materials by any of the attributes. Default DAZ textures wired to the DAZ library using $LIB variable, change this variable to reconnect to your library.
 
-2. For materials in Karma/Solaris copy over your materials from the `Character_init` `matnet1` into the LOPs matlib, if you rename the `matnet1` node, you have to rename the `Auto_material` Separator accordingly, since it is used as a delimiter to re-build the LOP material path. It is irrelevant where in the SOPs the material is, `Auto_material` script simply truncates everything before (and with) the separator from the GeomSubset's name to get the actual Material name. GeomSubsets are the result of the Partition Attributes function of the SOP Import LOP. Logically the `shop_materialpath` attribute is used for partitioning, it's a covenient procedural solution for those who still live in-between the LOPs/SOPs worlds.
+2. For materials in Karma/Solaris copy over your materials from the `Character_init` `matnet1` into the LOPs matlib, if you rename the `matnet1` node, you have to rename the `Auto_material` Separator accordingly, since it is used as a delimiter to re-build the LOP material paths. It is irrelevant where in the SOPs the material is, `Auto_material` script simply truncates everything before (and with) the separator from the GeomSubset's name to get the actual Material name. GeomSubsets are the result of the Partition Attributes function of the SOP Import LOP. Logically the `shop_materialpath` attribute is used for partitioning, it's a covenient procedural solution for those who still live in-between the LOPs/SOPs worlds.
 
-2. The DAZ's clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. It's not a 100% universal solution, but I never had to change anything in it. Although if something breaks, it might be a good idea to inspect the skeletons for possible duplicates. This setup handles twist joints in 99% of cases, but if it doesn't you can get rid of them in DAZ before expoting as an option.
+2. The DAZ's clothes/props have their own skeletons, which my setup takes care of in the `Joints_cleanup` subnet. It's not a 100% universal solution, but I never had to change anything here. Although if something breaks, it might be a good idea to inspect the skeletons for possible duplicates. Also make sure you enable `Merge followers` when exporting the character from DAZ. 
 
 3. Use the included `Sculpt` and `Capture Layer Paint` nodes to fix any problems with skinning/geometry (they stash the geo, so you need to reset them for each new character).
 
@@ -74,13 +73,15 @@ v 2.2
 - More updates to more recent APEX features.
 - More `Joints_orient` fixes (correct Thumb axis in particular).
 - `Joint_names` root joint name pattern narrowed (for renaming).
-- Added option to use APEX Groom instead of binding hairs to the character (now on by default, useful when you use only APEX to animate the character).
-- `Groups_by_keywords` is now `Materials_by_ReGex`. Instead of grouping it assigns materials directly. Also a function to quickly update the materials with a new character name is added.
-- Karma materials updated with MKKT option and it's enabled. Alpha maps are reconnected (since Houdini can finally display transparent materials).
-- `Hair_properties` updated with new options to collide Hair with Skin (to detangle) and to calculate stiffness along hairs (for simulation).
+- NEW: APEX Twist joints added (uses twist joints from DAZ).
+- NEW: Option to use APEX Groom instead of binding hair to the character (on by default, useful when you use only APEX to animate the character).
+- NEW: `Groups_by_keywords` is now `Materials_by_ReGex`. Instead of grouping it assigns materials directly. Plus a function to quickly update the materials with a new character name (when you spawn a new character).
+- NEW: `Hair_properties` updated with new options to collide Hair with Skin (to detangle) and to calculate stiffness along hairs (for simulation).
 - Import hair setup moved into the `Import_Daz_hair` subnet.
+- Karma materials updated with MKKT option and it's enabled.
+- Alpha maps are reconnected (since Houdini can finally display transparent materials).
 - Optimized export from `Char_anim` to Solaris by separating hair from geo, since they have pretty different set of attributes.
-- In one of the recent versions H changed the primary rig axis from Z to X, I think I have converted and fixed mostly everything related to this change.
+- Houdini recently changed the default primary rig axis from Z to X, I think I have converted and fixed mostly everything related to this change (except retargeting presets).
 
 
 v 2.1 - Start of Houdini 21+ support.
@@ -121,39 +122,6 @@ v 1.95
 - Materials updated with Invisible zones' Alpha (disconnect Opacity to have materilas in the viewport)
 - Some more minor joint patterns updates
 - APEX refreshed with build 20.5.684
-
-
-v 1.94
-
-- NEW: Early version of retarget helper setup (kinefx) added
-- `Aim_eyes` merged into a single lookat APEX component for both eyes
-- Disabled name hardening on cache nodes by default
-- Character pack/cache added
-
-
-v 1.93
-
-- `Isolate_materials_into_groups` now uses name patterns, should help automate it
-- `Invisible_zones` in a separate subnet and has settings now
-
-
-v 1.92
-
-- Small fixes and reorganizing
-- Delete Class attribute after `Polyhair_to_Curves`
-
-
-v 1.9
-- Neck rotation joint added
-- Correction to the Thumb orientation, now it is more alinged with other fingers
-- Correction to Eyelids orientation
-- More unified joint name pattenrs in `Joints_cleanup`, `Joints_orient` and in the APEX setup
-- Simple bind now does not create packed geometry, it overrides capture attribute instead (should help with char instancing)
-- More shortcuts in `Hair_properties`
-- Got rid of unneded path attribute on Rest_skel
-- Added alternative transform in `Joints_scale` (can make difference for non-DAZ models)
-- More comments everywhere
-- APEX nodes refreshed with build 20.5.587
 
 
 ## Useful links
