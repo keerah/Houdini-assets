@@ -43,7 +43,7 @@ This setup allows to inject a new character by simply loading a new fbx (and mat
 
 3. Use the included `Sculpt` and `Capture Layer Paint` nodes to fix any problems with skinning/geometry (they stash the geo, so you need to reset them for each new character).
 
-4. Choose one of the hair import methods on `Import_Daz_hair`. If you exported fiber (curves) hair from DAZ, use No Resampling. Otherwise if your character has polyhair or haircards, one of the hair resamples will generate curves from the geo for you. Adjust hair render propreties using `Hair_properties` subnet. Then the head hair can be simply attached to the head joint using `Bind_To_Head_Joint`. But for the beard or any other deforming hair use `Bind_Capture_Transfer_from_Skin`, it transfers the Capture weights from the character's skin. It might need some adjustment from you as well. And in case you use APEX animation exclusively you can use APEX Groom option, which makes it all fully procedurally.
+4. Choose one of the hair import methods on `Import_Daz_hair`. If you exported fiber (curves) hair from DAZ, use No Resampling. Otherwise if your character has polyhair or haircards, one of the hair resamples will generate curves from the geo for you. Adjust hair render propreties using `Hair_properties` subnet. Then the head hairs can be attached to the head joint using `Bind_To_Head_Joint` or using `Bind_Capture_Transfer_from_Skin` (for deforning hair). And in case you use APEX animation exclusively you can use APEX Groom option (the checkbox on the `APEX_setup` subnet), which takes care of the groom procedurally.
 
 
 ## Exporting from DAZ
